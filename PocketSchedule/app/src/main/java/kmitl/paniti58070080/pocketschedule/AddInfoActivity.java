@@ -52,6 +52,10 @@ public class AddInfoActivity extends AppCompatActivity {
     TimePicker class_start;
     @BindView(R.id.endPicker)
     TimePicker class_end;
+    private String key = "";
+    private String textSubject = "";
+    private String textLocation = "";
+    private Intent intent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,6 +66,15 @@ public class AddInfoActivity extends AppCompatActivity {
         class_start.setIs24HourView(true);
         class_end.setIs24HourView(true);
 
+        intent = getIntent();
+        if (intent.getStringExtra("key") != null){
+            Log.e("bundle", "not null");
+            key = intent.getStringExtra("key");
+            textSubject = intent.getStringExtra("schedule");
+            textLocation = intent.getStringExtra("location");
+            subject.setText(textSubject);
+            location.setText(textLocation);
+        }
         swipeSelector = findViewById(R.id.swipeSelector);
         swipeSelector.setItems(
                 new SwipeItem(0, "Monday", "Monday?! But, I wasn’t even finished with Saturday yet.."),
@@ -85,13 +98,24 @@ public class AddInfoActivity extends AppCompatActivity {
             public void onDataChange(DataSnapshot dataSnapshot) {
                 String timeStart = timeRefactor(Integer.toString(class_start.getCurrentHour())) + "." + timeRefactor(Integer.toString(class_start.getCurrentMinute()));
                 String timeEnd = timeRefactor(Integer.toString(class_end.getCurrentHour())) + "." + timeRefactor(Integer.toString(class_end.getCurrentMinute()));
-                String key = dataRef.push().getKey().toString();
                 ScheduleInfo scheduleInfo = new ScheduleInfo(swipeSelector.getSelectedItem().title.toString(),timeStart, timeEnd, location.getText().toString(), subject.getText().toString(), key);
                 if (dataValidation(scheduleInfo)){
-                    dataRef.child(user.getUid()).child("schedule").child(key).setValue(scheduleInfo);
-                    Intent intent = new Intent(AddInfoActivity.this, MainActivity.class);
-                    startActivity(intent);
-                    finish();
+                    if (intent.getStringExtra("key") != null) {
+                        Log.e("edit", intent.getStringExtra("key"));
+                        scheduleInfo.setKey(intent.getStringExtra("key"));
+                        dataRef.child(user.getUid()).child("schedule").child(intent.getStringExtra("key")).setValue(scheduleInfo);
+                        Intent intent = new Intent(AddInfoActivity.this, MainActivity.class);
+                        startActivity(intent);
+                        finish();
+                    }
+                    else {
+                        String keyGen = dataRef.push().getKey().toString();
+                        scheduleInfo.setKey(keyGen);
+                        dataRef.child(user.getUid()).child("schedule").child(keyGen).setValue(scheduleInfo);
+                        Intent intent = new Intent(AddInfoActivity.this, MainActivity.class);
+                        startActivity(intent);
+                        finish();
+                    }
                 }
             }
 

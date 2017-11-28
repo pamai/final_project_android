@@ -8,6 +8,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
@@ -90,6 +91,7 @@ public class PageFragment extends Fragment {
                         displayList(new ArrayList<ScheduleInfo>());
                     }
                 }
+
             }
 
             @Override
@@ -97,7 +99,8 @@ public class PageFragment extends Fragment {
 
             }
         });
-        // Inflate the layout for this fragment
+        Log.e("test", "OK let's go");
+
         return rootView;
     }
 
