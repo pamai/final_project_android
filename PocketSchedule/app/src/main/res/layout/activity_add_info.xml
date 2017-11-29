@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView android:layout_width="match_parent"
+<ScrollView xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
@@ -15,9 +16,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="30dp"
-            android:background="#f6bdc7c9"
             android:gravity="center"
-            android:text="Subject"
+            android:text="@string/add_new_class"
             android:textSize="24sp"
             android:textStyle="bold" />
 
@@ -33,28 +33,30 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Subject :" />
+            android:text="@string/subject" />
 
         <EditText
             android:id="@+id/addSubject"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:singleLine="true"/>
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Location :" />
+            android:text="@string/location" />
 
         <EditText
             android:id="@+id/addLocation"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:singleLine="true"/>
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Start"
-            android:textSize="20dp"/>
+            android:text="@string/start"
+            android:textSize="20sp"/>
 
         <TimePicker
             android:id="@+id/startPicker"
@@ -65,8 +67,8 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="End"
-            android:textSize="20dp"/>
+            android:text="@string/end"
+            android:textSize="20sp"/>
 
         <TimePicker
             android:id="@+id/endPicker"
@@ -85,9 +87,9 @@
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:onClick="addInfo"
-                android:text="ADD"
+                android:text="@string/add"
                 android:textStyle="bold"
-                 />
+                tools:ignore="ButtonStyle" />
 
             <Button
                 android:id="@+id/cancelButton"
@@ -95,7 +97,8 @@
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:onClick="cancelInfo"
-                android:text="Cancel" />
+                android:text="@string/cancel"
+                tools:ignore="ButtonStyle" />
 
         </LinearLayout>
 

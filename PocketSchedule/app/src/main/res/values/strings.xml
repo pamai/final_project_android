@@ -13,4 +13,11 @@
 
     <string name="facebook_app_id">1955436361377283</string>
     <string name="fb_login_protocol_scheme">fb1955436361377283</string>
+    <string name="location">Location :</string>
+    <string name="subject">Subject :</string>
+    <string name="add_new_class">Add New Class</string>
+    <string name="start">Start</string>
+    <string name="end">End</string>
+    <string name="add">ADD</string>
+    <string name="cancel">Cancel</string>
 </resources>

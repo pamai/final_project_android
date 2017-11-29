@@ -18,7 +18,6 @@ public class ScheduleInfo implements Comparable<ScheduleInfo>{
     }
 
     public ScheduleInfo(String day, String time_start, String time_end, String location, String subject, String key) {
-
         this.day = day;
         this.time_start = time_start;
         this.time_end = time_end;
@@ -31,40 +30,20 @@ public class ScheduleInfo implements Comparable<ScheduleInfo>{
         return day;
     }
 
-    public void setDay(String day) {
-        this.day = day;
-    }
-
     public String getTime_start() {
         return time_start;
-    }
-
-    public void setTime_start(String time_start) {
-        this.time_start = time_start;
     }
 
     public String getTime_end() {
         return time_end;
     }
 
-    public void setTime_end(String time_end) {
-        this.time_end = time_end;
-    }
-
     public String getLocation() {
         return location;
     }
 
-    public void setLocation(String location) {
-        this.location = location;
-    }
-
     public String getSubject() {
         return subject;
-    }
-
-    public void setSubject(String subject) {
-        this.subject = subject;
     }
 
     public String getKey() {

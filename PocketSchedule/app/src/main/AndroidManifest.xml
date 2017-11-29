@@ -3,6 +3,7 @@
     package="kmitl.paniti58070080.pocketschedule">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -40,6 +41,10 @@
             </intent-filter>
         </activity>
         <activity android:name=".AddInfoActivity"></activity>
+
+        <provider android:authorities="com.facebook.app.FacebookContentProvider1955436361377283"
+            android:name="com.facebook.FacebookContentProvider"
+            android:exported="true"/>
     </application>
 
 

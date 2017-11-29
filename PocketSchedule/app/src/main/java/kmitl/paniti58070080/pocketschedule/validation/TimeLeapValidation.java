@@ -7,7 +7,7 @@ import kmitl.paniti58070080.pocketschedule.model.ScheduleInfo;
 
 public class TimeLeapValidation implements ScheduleValidation {
     @Override
-    public void validate(ScheduleInfo data) throws EmptySubjectException, EmptyLocationException, InvalidClassTimeException {
+    public void validate(ScheduleInfo data) throws InvalidClassTimeException {
         if (data.getTime_start().compareTo(data.getTime_end()) >= 0){
             throw new InvalidClassTimeException("Back to the future?");
         }
