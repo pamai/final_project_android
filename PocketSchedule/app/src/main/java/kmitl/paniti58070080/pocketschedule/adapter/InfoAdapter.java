@@ -1,11 +1,9 @@
-package kmitl.paniti58070080.pocketschedule;
+package kmitl.paniti58070080.pocketschedule.adapter;
 
 
 import android.app.Activity;
-import android.app.FragmentManager;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -25,6 +23,8 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import kmitl.paniti58070080.pocketschedule.AddInfoActivity;
+import kmitl.paniti58070080.pocketschedule.R;
 import kmitl.paniti58070080.pocketschedule.model.ScheduleInfo;
 
 public class InfoAdapter extends RecyclerView.Adapter<InfoAdapter.ResultHolder>{

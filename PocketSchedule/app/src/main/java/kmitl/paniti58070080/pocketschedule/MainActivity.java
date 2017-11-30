@@ -1,6 +1,5 @@
 package kmitl.paniti58070080.pocketschedule;
 
-import android.*;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -21,9 +20,6 @@ import android.view.View;
 
 import com.facebook.login.LoginManager;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
 
 import java.io.ByteArrayOutputStream;
 import java.util.Date;
@@ -31,11 +27,9 @@ import java.util.Date;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import kmitl.paniti58070080.pocketschedule.adapter.PagerAdapter;
 
 public class MainActivity extends AppCompatActivity {
-
-    private DatabaseReference dataRef;
-    FirebaseUser user;
 
     @BindView(R.id.pager)
     ViewPager pager;
@@ -53,10 +47,6 @@ public class MainActivity extends AppCompatActivity {
         pager.setAdapter(new PagerAdapter(getSupportFragmentManager()));
         pager.setCurrentItem(date);
 
-        user = FirebaseAuth.getInstance().getCurrentUser();
-        dataRef = FirebaseDatabase.getInstance().getReference();
-        Log.e("user", user.getUid());
-        dataRef = dataRef.child(user.getUid()).child("schedule");
     }
 
 

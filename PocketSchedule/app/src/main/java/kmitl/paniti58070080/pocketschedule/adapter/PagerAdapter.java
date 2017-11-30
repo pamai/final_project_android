@@ -1,4 +1,4 @@
-package kmitl.paniti58070080.pocketschedule;
+package kmitl.paniti58070080.pocketschedule.adapter;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
