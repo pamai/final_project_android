@@ -67,6 +67,8 @@ public class PageFragment extends Fragment {
         scheduleInfos = new ArrayList<>();
 
         user = FirebaseAuth.getInstance().getCurrentUser();
+        Log.e("user", user.toString());
+        Log.e("user", user.getUid());
         dataRef = FirebaseDatabase.getInstance().getReference();
         dataRef = dataRef.child(user.getUid()).child("schedule");
         dataRef.addValueEventListener(new ValueEventListener() {

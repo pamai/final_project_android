@@ -55,6 +55,7 @@ public class MainActivity extends AppCompatActivity {
 
         user = FirebaseAuth.getInstance().getCurrentUser();
         dataRef = FirebaseDatabase.getInstance().getReference();
+        Log.e("user", user.getUid());
         dataRef = dataRef.child(user.getUid()).child("schedule");
     }
 
@@ -90,6 +91,7 @@ public class MainActivity extends AppCompatActivity {
             case R.id.logout:
                 Log.d("menu", "1");
                 LoginManager.getInstance().logOut();
+                FirebaseAuth.getInstance().signOut();
                 Intent intentLogin = new Intent(this, LoginActivity.class);
                 startActivity(intentLogin);
                 finish();

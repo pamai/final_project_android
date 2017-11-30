@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.Toast;
 
 import com.facebook.AccessToken;
@@ -59,17 +60,15 @@ public class LoginActivity extends AppCompatActivity {
         // Callback registration
         if (accessToken != null){
             handleFacebookAccessToken(accessToken);
-            Intent intent = new Intent(this, MainActivity.class);
-            startActivity(intent);
-            finish();
+            Log.e("old login", accessToken.toString());
+            Log.e("old login", accessToken.getToken().toString());
         }
         loginButton.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
             @Override
             public void onSuccess(LoginResult loginResult) {
                 handleFacebookAccessToken(loginResult.getAccessToken());
-                Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-                startActivity(intent);
-                finish();
+                Log.e("new login", loginResult.getAccessToken().toString());
+                Log.e("new login", loginResult.getAccessToken().getToken().toString());
             }
 
             @Override
@@ -104,12 +103,16 @@ public class LoginActivity extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
-
+                            Log.e("firebase authen", "suc");
+                            FirebaseUser user = mAuth.getCurrentUser();
+                            Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                            startActivity(intent);
+                            finish();
                         } else {
+                            Log.e("firebase authen", "fail");
                             Toast.makeText(LoginActivity.this, "Authentication failed.",
                                     Toast.LENGTH_SHORT).show();
                         }
-
                     }
                 });
     }
