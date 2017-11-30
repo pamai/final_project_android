@@ -60,6 +60,8 @@ dependencies {
     implementation 'com.roughike:swipe-selector:1.0.6'
     implementation 'info.hoang8f:fbutton:1.0.5'
 
+    implementation 'com.wang.avi:library:2.1.3'
+
 }
 
 
