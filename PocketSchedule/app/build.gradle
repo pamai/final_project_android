@@ -5,7 +5,7 @@ android {
     compileSdkVersion 26
     defaultConfig {
         applicationId "kmitl.paniti58070080.pocketschedule"
-        minSdkVersion 15
+        minSdkVersion 21
         targetSdkVersion 26
         versionCode 1
         versionName "1.0"
@@ -59,7 +59,6 @@ dependencies {
 
     implementation 'com.roughike:swipe-selector:1.0.6'
     implementation 'info.hoang8f:fbutton:1.0.5'
-    compile 'com.facebook.android:facebook-share:[4,5)'
 
 }
 
